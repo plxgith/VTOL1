@@ -3,3 +3,5 @@
 *.jpg
 *.jpeg
 *.exe
+/Flight Logs/*
+!/FLight Logs/GetFlightLogs.bat
