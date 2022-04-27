@@ -8,3 +8,9 @@
 *.png
 *.params
 !/VTOL Parameters/*.params
+*.aux
+*.log
+*.gz
+*.zip
+*.rar
+*.toc
