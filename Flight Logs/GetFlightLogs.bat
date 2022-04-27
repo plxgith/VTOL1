@@ -1,1 +1,1 @@
-xcopy /s/z "\\sh1king.king-ict.corp\PlanetIX\VTOL\mVtol\Letovi\Skala model 70%%" .
+xcopy /s/z/d "\\sh1king.king-ict.corp\PlanetIX\VTOL\mVtol\Letovi\Skala model 70%%" .

@@ -4,3 +4,7 @@
 *.jpeg
 *.exe
 *.ulg
+*.mov
+*.png
+*.params
+!/VTOL Parameters/*.params
