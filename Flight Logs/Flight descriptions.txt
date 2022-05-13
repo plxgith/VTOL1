@@ -1,0 +1,30 @@
+
+  Flight day 19, prvi let
+    Prvi let
+      - promijenjen parametar MPC_XY_VEL_MAX na 15 => nije bio brži 
+      - samo hoveranje na mjestu bez krila sa stražnjim pogonskim motorom
+      - testiranje za mjerenje struje, strujni senzori smješteni na dva motora s iste strane
+      - vrijeme u zraku otprilike sedam minuta
+      - isključeno je usmjeravanje u vjetar 
+      - struja je paralelno logirana na jetiju
+    Drugi let 
+      - bez krila sa stražnjim pogonskim motorom
+      - Strujni senzori se spajaju u križ tj spojeni su ili oba lijevo vrteća ili oba desno vrteća (da se eliminira utjecaj yaw-a)
+      - zaletavanje do max horizontalne brzine (prema qground 15 m/s) kako bi se vidjelo 
+      - log od jetij aj eupaljen puno kasnje u odnosu na pravi log (trebala bi se gledati sinkronizacija od kraja a ne od početka loga)
+    Treći let
+      - promijenjen parametar MPC_VEL_MANUAL na 15 => zaista je bio brži 
+      - bez krila sa stražnjim pogonskim motorima 
+      - ampermetri su na suprotnim križnim motorima 
+      - spušten jer se stražnja elisa odpojila
+    Četvrti let 
+      - bez krila sa stražnjim pogonskim motorima
+      - apermetri ostaju na križnim motorima 
+      - cijeli let je letio uzdužno i niz vjetar punom brzinom
+      - jednom je letio uzdužno i niz vjetar ali malo ukoso na vjetar (da se vidi otklon na ampermetrima na jetiju jer treba yaw biti aktivan)
+      - pri kraju malo hoverao
+    Peti let 
+      - stavljaju se krila
+      - sa krilima sa stražnjim pogonskim motorima 
+      - sa krilima pri većoj brzini počinje dizat nos i postaje jako nestabilan onda kad želi zakočiti (počinje jako oscilirati u rollu i pitchu i spasi ga to što je u multi fazi pa se nekako uspije ispraviti i smiriti)
+      - znači pri ubrzvanju dok je multi s krilima počinje se dizat nos (stražnji motori pokušaju to ispraviti, tj prednji motori su na nuli) zbog čega kad želi zakočit onda se naglo nagne po pitchu pa po rollu itd i onda se sav zblesira, ali ga multi motori nakon par sekundi uspiju spasiti, no kao da mu to ostaviti trajne posljedice pa nakon toga sve bude puno čudnije upravljanje 
