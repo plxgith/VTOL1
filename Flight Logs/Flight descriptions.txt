@@ -1,5 +1,5 @@
 
-  Flight day 19, prvi let
+  Flight day 19
     Prvi let
       - promijenjen parametar MPC_XY_VEL_MAX na 15 => nije bio brži 
       - samo hoveranje na mjestu bez krila sa stražnjim pogonskim motorom
@@ -28,3 +28,36 @@
       - sa krilima sa stražnjim pogonskim motorima 
       - sa krilima pri većoj brzini počinje dizat nos i postaje jako nestabilan onda kad želi zakočiti (počinje jako oscilirati u rollu i pitchu i spasi ga to što je u multi fazi pa se nekako uspije ispraviti i smiriti)
       - znači pri ubrzvanju dok je multi s krilima počinje se dizat nos (stražnji motori pokušaju to ispraviti, tj prednji motori su na nuli) zbog čega kad želi zakočit onda se naglo nagne po pitchu pa po rollu itd i onda se sav zblesira, ali ga multi motori nakon par sekundi uspiju spasiti, no kao da mu to ostaviti trajne posljedice pa nakon toga sve bude puno čudnije upravljanje 
+      
+      
+      
+  Flight day 20 
+    Prvi let
+      - MC motori su spušteni dolje tj nalaze se ispod šipke tj donje strane šipke (prije su bili iznad šipke tj s njene gornje strane)
+      - nema krila te nema dodatnu težinu (tj nema utega dodatnih)
+      - samo ide naprijed nazad uzduž piste tj niz i uz vjetar 
+      - mrvicu bolje ponašanje nego prije 
+      
+    Drugi let
+      - MC motori spušteni dolje
+      - stavljena se krila na njega (bez utega)
+      - poprilično je nestabilan prilikom zaustavljanja, kad želi zakočit sav se preokrene oko sebe i jedva se izvuče uz tominu pomoć
+      - doslovno se po pitchu i po rollu skroz okrene oko sebe onak do 50 stupnjeva ako ne i više, čudo je kako je preživio uopće izgleda da ga bog čuva
+      - očito nije dobro tuniran
+      - pri  kraju leta se automatski prebacio u return to home mode letenja -> vjv zbog toga kaj je naponbaterije pao ispod nekog praga zbog nagle promjene na aktuatorima kad se htio ispraviti (svi motori skoro bili u gornjem zasićenju i palice su išle naglo gore da se ispraviti
+      
+    Treći let
+      - motori ostaju permanentno dolje
+      - mice se prednje krilo tj ostaje samo stražnje krilo tj leti u MC modeu samo sa stražnjim krilom (da se provjeri dal mc motori stvaraju moment u tom slučaju) 
+      - pao mu je poklopac od baterije
+      
+    Četvrti let
+      - isto kao treći (gdje je pao poklopac pa se trebao odmah završiti)
+      - cijelo vrijeme ide uzduž piste tj uz i niz vjetar
+      - pri većoj brzini prema naprijed se puno bolje ponaša nego kad ima prednje krilo
+      - aktivirao se opet return to home ne zna se zašto
+      
+    Peti let  
+      - leti samo sa stražnjim krilom 
+      - još uvijek uz i niz pistu tj vjetar 
+      - opet se aktivirao return to home iz nekog razloga
