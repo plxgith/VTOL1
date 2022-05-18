@@ -61,3 +61,69 @@
       - leti samo sa stražnjim krilom 
       - još uvijek uz i niz pistu tj vjetar 
       - opet se aktivirao return to home iz nekog razloga
+
+  
+  Flight day 21 - jako puše, puno jače nego drugih dana, vjetar je otprilike konstaktnog smjera
+    Prvi let
+      - bez krila ali sa utezima tako da ima masu od 11.2 kg (pretpostavka da motori neće u donje zasićenje)
+      - išao je dvaput naprijed uz vjetar i dvaput u rikverc (nije se zarotirao nego baš u rikverc)
+      - opet se uključilo return to home pri kraju leta 
+      
+    Drugi let
+      - bez krila sa utezima tako da mu masa bude 11.2 kg tj isto kao i prošli let 
+      - promijenjen parametar COM_RC_OVERRIDE sa 0 na 1 (default vrijednost) pretpostavka je da on iz nekog razloga uđu u return to home, ali kako je ovo bilo na 0 tomo nije mogao sa inputima na palicama se automatski vratiti u position mode (jer se nije smio ovverrideati taj auto mode) nego je ostao u return to home, preptostavka je da će sad moći sa inputima na palici prebaciti se iz return to home u position mode, ako je to tako onda znamo da nam return to home NE UZROKUJE critical batery failsafe, ako se sa inputima na palici ne uspije vratiti u position (sad kad je param = 1) onda znamo da nam return to home aktivira critical batery failsafe 
+      - promijenjen COM_RC_STICK_OV sa 30 (def) na 5 uz pretpostavku da mali pomak palice (5%) će uzrokovati promijenu iz return to home u position mode (a ne tek veliki pomak od 30%)
+      - išao je ravno uzduž piste tj uzduž vjetra i onda u rikverc nazad (kao i prvi let sve isto)
+      - ovaj let je isti kao prvi jer je u logu u prvom nešto bilo čudno kao da jedan prednji motor ne radi pa da se ponovi sve 
+      
+    Treći let
+      - sa krilima i sa utezima tako da ima masu od 11.5 kg
+      - ovaj let će biti samo hoveranje da se vidi jel može uopće letjeti s obzirom na vjetar i masu i krila i sve 
+      - nismo logali ampere na jetiju pa će se let ponoviti 
+      
+    Četvrti let
+      - sa krilima i utezima s istom masom kao let prije
+      - hoveranje i malo naprijed i jednom u rikverc
+      - imamo ampere 
+      
+    Peti let
+      - sa krilima i utezima s istom masom kao let prije
+      - pozicija ailerona je bila fiksna na stražnjim krilima tj na jetiju se prekidačem određivalo da  li su aileroni ravni ili spušteni 
+      
+    Šesti let
+      - sa krilima i utezima i sa aileronima u spuštenom položaju
+      -
+      
+      
+      
+      
+      
+      
+      
+      - promijenjen je parametar MPC_VEL_MANUAL sa 15 na 5 jer jako puše i bojimo se da za veću brzinu će počet letit kao avion tj da neće hoverat kao MC sa krilima u zraku pa je zato smanjena maks brzina 
+      - 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
