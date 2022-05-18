@@ -1,0 +1,129 @@
+
+  Flight day 19
+    Prvi let
+      - promijenjen parametar MPC_XY_VEL_MAX na 15 => nije bio brži 
+      - samo hoveranje na mjestu bez krila sa stražnjim pogonskim motorom
+      - testiranje za mjerenje struje, strujni senzori smješteni na dva motora s iste strane
+      - vrijeme u zraku otprilike sedam minuta
+      - isključeno je usmjeravanje u vjetar 
+      - struja je paralelno logirana na jetiju
+    Drugi let 
+      - bez krila sa stražnjim pogonskim motorom
+      - Strujni senzori se spajaju u križ tj spojeni su ili oba lijevo vrteća ili oba desno vrteća (da se eliminira utjecaj yaw-a)
+      - zaletavanje do max horizontalne brzine (prema qground 15 m/s) kako bi se vidjelo 
+      - log od jetij aj eupaljen puno kasnje u odnosu na pravi log (trebala bi se gledati sinkronizacija od kraja a ne od početka loga)
+    Treći let
+      - promijenjen parametar MPC_VEL_MANUAL na 15 => zaista je bio brži 
+      - bez krila sa stražnjim pogonskim motorima 
+      - ampermetri su na suprotnim križnim motorima 
+      - spušten jer se stražnja elisa odpojila
+    Četvrti let 
+      - bez krila sa stražnjim pogonskim motorima
+      - apermetri ostaju na križnim motorima 
+      - cijeli let je letio uzdužno i niz vjetar punom brzinom
+      - jednom je letio uzdužno i niz vjetar ali malo ukoso na vjetar (da se vidi otklon na ampermetrima na jetiju jer treba yaw biti aktivan)
+      - pri kraju malo hoverao
+    Peti let 
+      - stavljaju se krila
+      - sa krilima sa stražnjim pogonskim motorima 
+      - sa krilima pri većoj brzini počinje dizat nos i postaje jako nestabilan onda kad želi zakočiti (počinje jako oscilirati u rollu i pitchu i spasi ga to što je u multi fazi pa se nekako uspije ispraviti i smiriti)
+      - znači pri ubrzvanju dok je multi s krilima počinje se dizat nos (stražnji motori pokušaju to ispraviti, tj prednji motori su na nuli) zbog čega kad želi zakočit onda se naglo nagne po pitchu pa po rollu itd i onda se sav zblesira, ali ga multi motori nakon par sekundi uspiju spasiti, no kao da mu to ostaviti trajne posljedice pa nakon toga sve bude puno čudnije upravljanje 
+      
+      
+      
+  Flight day 20 
+    Prvi let
+      - MC motori su spušteni dolje tj nalaze se ispod šipke tj donje strane šipke (prije su bili iznad šipke tj s njene gornje strane)
+      - nema krila te nema dodatnu težinu (tj nema utega dodatnih)
+      - samo ide naprijed nazad uzduž piste tj niz i uz vjetar 
+      - mrvicu bolje ponašanje nego prije 
+      
+    Drugi let
+      - MC motori spušteni dolje
+      - stavljena se krila na njega (bez utega)
+      - poprilično je nestabilan prilikom zaustavljanja, kad želi zakočit sav se preokrene oko sebe i jedva se izvuče uz tominu pomoć
+      - doslovno se po pitchu i po rollu skroz okrene oko sebe onak do 50 stupnjeva ako ne i više, čudo je kako je preživio uopće izgleda da ga bog čuva
+      - očito nije dobro tuniran
+      - pri  kraju leta se automatski prebacio u return to home mode letenja -> vjv zbog toga kaj je naponbaterije pao ispod nekog praga zbog nagle promjene na aktuatorima kad se htio ispraviti (svi motori skoro bili u gornjem zasićenju i palice su išle naglo gore da se ispraviti
+      
+    Treći let
+      - motori ostaju permanentno dolje
+      - mice se prednje krilo tj ostaje samo stražnje krilo tj leti u MC modeu samo sa stražnjim krilom (da se provjeri dal mc motori stvaraju moment u tom slučaju) 
+      - pao mu je poklopac od baterije
+      
+    Četvrti let
+      - isto kao treći (gdje je pao poklopac pa se trebao odmah završiti)
+      - cijelo vrijeme ide uzduž piste tj uz i niz vjetar
+      - pri većoj brzini prema naprijed se puno bolje ponaša nego kad ima prednje krilo
+      - aktivirao se opet return to home ne zna se zašto
+      
+    Peti let  
+      - leti samo sa stražnjim krilom 
+      - još uvijek uz i niz pistu tj vjetar 
+      - opet se aktivirao return to home iz nekog razloga
+
+  
+  Flight day 21 - jako puše, puno jače nego drugih dana, vjetar je otprilike konstaktnog smjera
+    Prvi let
+      - bez krila ali sa utezima tako da ima masu od 11.2 kg (pretpostavka da motori neće u donje zasićenje)
+      - išao je dvaput naprijed uz vjetar i dvaput u rikverc (nije se zarotirao nego baš u rikverc)
+      - opet se uključilo return to home pri kraju leta 
+      
+    Drugi let
+      - bez krila sa utezima tako da mu masa bude 11.2 kg tj isto kao i prošli let 
+      - promijenjen parametar COM_RC_OVERRIDE sa 0 na 1 (default vrijednost) pretpostavka je da on iz nekog razloga uđu u return to home, ali kako je ovo bilo na 0 tomo nije mogao sa inputima na palicama se automatski vratiti u position mode (jer se nije smio ovverrideati taj auto mode) nego je ostao u return to home, preptostavka je da će sad moći sa inputima na palici prebaciti se iz return to home u position mode, ako je to tako onda znamo da nam return to home NE UZROKUJE critical batery failsafe, ako se sa inputima na palici ne uspije vratiti u position (sad kad je param = 1) onda znamo da nam return to home aktivira critical batery failsafe 
+      - promijenjen COM_RC_STICK_OV sa 30 (def) na 5 uz pretpostavku da mali pomak palice (5%) će uzrokovati promijenu iz return to home u position mode (a ne tek veliki pomak od 30%)
+      - išao je ravno uzduž piste tj uzduž vjetra i onda u rikverc nazad (kao i prvi let sve isto)
+      - ovaj let je isti kao prvi jer je u logu u prvom nešto bilo čudno kao da jedan prednji motor ne radi pa da se ponovi sve 
+      
+    Treći let
+      - sa krilima i sa utezima tako da ima masu od 11.5 kg
+      - ovaj let će biti samo hoveranje da se vidi jel može uopće letjeti s obzirom na vjetar i masu i krila i sve 
+      - nismo logali ampere na jetiju pa će se let ponoviti 
+      
+    Četvrti let
+      - sa krilima i utezima s istom masom kao let prije
+      - hoveranje i malo naprijed i jednom u rikverc
+      - imamo ampere 
+      
+    Peti let
+      - sa krilima i utezima s istom masom kao let prije
+      - pozicija ailerona je bila fiksna na stražnjim krilima tj na jetiju se prekidačem određivalo da  li su aileroni ravni ili spušteni 
+      
+    Šesti let
+      - sa krilima i utezima i sa aileronima u spuštenom položaju
+      -
+      
+      
+      
+      
+      
+      
+      
+      - promijenjen je parametar MPC_VEL_MANUAL sa 15 na 5 jer jako puše i bojimo se da za veću brzinu će počet letit kao avion tj da neće hoverat kao MC sa krilima u zraku pa je zato smanjena maks brzina 
+      - 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
