@@ -93,32 +93,6 @@
     Šesti let
       - sa krilima i utezima i sa aileronima u spuštenom položaju
       -
-      
-      
-      
-      
-      
-      
-      
-      - promijenjen je parametar MPC_VEL_MANUAL sa 15 na 5 jer jako puše i bojimo se da za veću brzinu će počet letit kao avion tj da neće hoverat kao MC sa krilima u zraku pa je zato smanjena maks brzina 
-      - 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
