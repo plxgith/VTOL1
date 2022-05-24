@@ -91,8 +91,19 @@
       - pozicija ailerona je bila fiksna na stražnjim krilima tj na jetiju se prekidačem određivalo da  li su aileroni ravni ili spušteni 
       
   
+  Flight day 22 
   
-  
+    Prvi let 
+      - sa krilima i utezima kao i zadnji put, danas je težak 12 kg koz
+      - parametat FW_PSP_OFF je ostavljen u nuli kako bi se proučio utjecaj njegova mijenjanja u sljedećem letu
+      - iali smo problema s kalibracijom airspeed senzora, baš je ful krivo očitavao vrijednosti
+      - opet se u nekom trenutku uključio return to land
+      - vrludao je jako puno iako je miran dan (možda jer je airspeed loše kalibriran)
+      - na kraju leta je pao, počeo se rotirati sam oko sebe vrludati baš je postao nestabilan, na kraju je pao tj nije se uspio primiriti
+      - baš se počeo i rollat i pithat i sve odjednom baš grdo 
+      - strgao se pri padu te ispada da je to sve od danas kaj se tiče letenja
+      
+    
   
   
   
