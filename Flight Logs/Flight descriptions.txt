@@ -102,10 +102,55 @@
       - na kraju leta je pao, počeo se rotirati sam oko sebe vrludati baš je postao nestabilan, na kraju je pao tj nije se uspio primiriti
       - baš se počeo i rollat i pithat i sve odjednom baš grdo 
       - strgao se pri padu te ispada da je to sve od danas kaj se tiče letenja
+
       
+  Flight day 23 
     
+    Prvi let  
+      - bez krila sa utezima ukupne mase 9.7 kg 
+      - mijenja se parametar regulatora roll rate D na defaultnu (veću) vrijednost
+      - isključuje se stražnji pogosnki motor (tj želimo da kad leti naprijed da se pitcha a ne da se gura sa stražnnjim motorom) kako bi mogli lakše tunirati 
+      - rađen let prvo u position modeu pa zatim u stabilisedu
+      - naglo naprijed pa naglo lijevo pa naglo desno pa naglo nazad (pa to u positionu i u stabilisedu)
+      - skroz je ok letio jako zadivljujuće tako da smo zadovoljni promjenama
+      
+    Drugi let 
+      - ista konfiguracija kao i prije tj bez krila s masom 9.7
+      - parametri ostaju isti kao i let prije (tj oni promijenjeni ostaju takvi)
+      - mijenja se roll P regulator (ne rate nego čisti roll) na manju vrijednost tj sa 5.5 na 4.5 (isti kao pitch_P) jer je tako savjetovao neki lik s px4 stackoverflowa 
+      - letio je jako dobro svi su komentirali da jako super leti tako da ovi parametri ostaju kakvi i jesu 
   
-  
+    Treći let 
+      - ista konfiguracija i parametri kao let prije osim:
+      - promijenjeni su parametri integralnih komponenti regulatora tj roll rate i pitch rate I smanjeni su na 0.1 sa 0.15
+      - let je bio skroz dobar
+      - po grafovima nam se čini da je let 2 bio mrvicu bolji od leta 3 tj da je nakon gledanja pid analize uočeno da u drugom leti (veći integral) da je bio bliži željenoj vrijednosti
+      - po ponašanju je bio isti kao let 2 što znači da mala promjena regulatora prema dolje ne utječe značajno na upravljivost pa je stoga odlučeno dad se integral vrati nna vežu vrijednost (bolji odziv je tako a isto ponašanje)
+      
+    Četvrti let
+      - ista konfiguracija kao i prije
+      - integratori u regulatorima (roll rate i pitch rate I) stavljaju se na mrvicu veću vrijednost nego u drugom letu tj stavljeni su na vrijednost 0.2 iz razloga što su drugi i treći let po ponašanju bili isti, ali je po grafovima drugi let bio bolji pa pretpostavljamo ako još malo povećamo integratore da ćemo imati još bolji odziv, a jednako lijepo upravljanje
+      - letio je ful dobro isto lijepo kao i drugi i treći let
+      - po grafovima (pid analiza) puno je bolji od drugog i trećeg leta tako da je odlučeno da parametri za I regulator ostaju isti tj 0.2 (defaultna vrijednost)
+
+    Peti let
+      - ista konfiguracija kao i prije
+      - primijenjen parametar za roll P regulator (ne roll rate nego čisti roll) sa 4.5 na 4 jer su tako preporučili ljudi sa px4 stackoverflowa
+      - još uvijek je jako agilan i jako se dobro ponaša ful lijepo leti i reagira na promjene palice
+      - ponašanje prema grqafovima je mrvicu lošije nego u četvrtom letu no smatramo da to može biti do preciznoti mjerenja tako da odlučujemo (zasad bez krila) ostsaviti ove parametre te onda kad stavimo krila gledati u detalje parametre i još ih mijenjati 
+      
+    Šesti let 
+      - ista kofiguracija i parametri kao i prije
+      - mijenjamo parametre gyro_cutoff i dgyro_cutoff sa 40 na 35 odnsono sa 30 na 25
+      - cilj je promijeniti samo dgyro cutoff no prema preporuci razlika između ta dva treba biti do 10 Hz pa smo onda shodno smanjili i gyro cutoff
+      - mislimo da ćemo tako imati manje vibracija i šuma tokom leta 
+      - jako je lijepo letio i logovi su ok što znači da smanjenje gyro i gyro cutoff ne utječe previše ovako pa ih ostavljamo kakvi jesu
+      
+    Sedmi let
+      - ista kofiguracija i sve kao prije
+      - gyro i dgyro cutoff još smanjeni na 30 odnosno 20 Hz 
+      - isto jako lijepo letio i jako je agilan tako da je to super i sa ovim još manjih cutoff frekvencijama 
+      - prema grafovima letio je skroz dobro, ne uočava se bitna razlika u odnosu na let prije 
   
   
   
