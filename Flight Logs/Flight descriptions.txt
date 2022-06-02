@@ -153,4 +153,44 @@
       - prema grafovima letio je skroz dobro, ne uočava se bitna razlika u odnosu na let prije 
   
   
+  Flight day 24 puše umjereno jači vjetar 
+  
+    Prvi let
+      - leti bez krila, sa utezima ukupne mase 9.8 kg ali sa uključenim stražnjim pogonom kako bi se u kasnijem letu mogao usporediti kada će letiti sa stražnjim pogonom i krilima
+      - prvi let je ovakav da ne moramo dvaput stavljat i micat krila nego samo jednom (služi nam kao provjera  tj za usoredbu za kasniji let) a i jednostavnije je promijenit da je pusher upaljen ili zgašen 
+      - parametri su isti kao jučer tj svi parametri od prošlog letačkog dana (kako je bilo na kraju letačkog dana) osim uključeni dtražnji pogon ostaju isti 
+      - samo ubrzavanje uzduž piste prema naprijed i u rikverc kako bi imali logove struje i pwm-a (ampermetri na križnim motorima kao i prije)
+      
+    Drugi let
+      - stavljaju se krila sa uključenim stražnjim pogonom 
+      - ide se testirati parametri od prošlog letačkog dana tj provjeriti jel ok sve u slučaju kada su na njemu krila (za razliku od prošlog letačkog dana kada je rađeno sve bez krila)
+      - već pri poletanju odmah se počeo ful jako puno tresti pa se let odmah morao prekinuti (tipa nakon 10 sekundi)
+      
+    Treći let
+      - ista konfiguracija kao drugi let (krila utezi upaljen pogosnki stržnji)
+      - mijenjaju se cutoff frekvencije za još pet manje tj dgyro_cutoff na 15 Hz i gyro_cutoff na 25 Hz jer se opet počeo tresti na 20 Hz pa sa ovih dgyro želimo ubiti te 20 Hz frekvencije (to je pretpostavka)
+      - opet se tresao tako da ovo s cutoffima nije dobro 
+      
+    Četvrti let 
+      - ista konfiguracija kao drugi let 
+      - cutoff frekvencije se vraćaju na defaultne (40 Hz za gyyro i 30 Hz za dgyro)
+      - pali se notch filtar (notch0) te se stavlja na frekvenciju 18 Hz i širine +-2 Hz (jer je sredina tipa baš na 18 Hz a ne 20)
+      - kada je poletio više se uopće nije tresao znači fascinantno očito je notch filtar bio rješenje
+      - lagano u zraku ide naprijed nazada lijevo desno da vidimo jel dobro upravljiv s noth filterom 
+      - opet je ušao u return to land iz nekog razloga
+      
+    Peti let  
+      - ista kofiguracija kao od drugog leta nadalje
+      - mijenja se parametar pitch rate D na 0.003 sa 0.002 (tj povećan je na defaultnu vrijednost) pretpostavka da ćemo tako dobiti bolji odziv za pitch rate (tj blaži a ne da ima sitne grbe u pid analyses)
+      - nije dovoljno agilan u letu, trebu mu još D-a 
+      
+    Šesti let 
+      - ista konfiguracija kao od drugog leta nadalje
+      - povećavamo roll rate D na 0.004 (sa defaultnih 0.003) da nam ubije 'grbe' u roll rate responseu (uočeno je da povećanjem D na pitchrateu smo uklonili grbe pa to isto očekujemo i ovdje)
+      - još uvijek je ne baš tako dobro ponašanje
+      - jako sporo kreće naprijed (treba mu vrijeme da se pusher upali i zavrti)
+      
+    Sedmi let
+      - sve isto kao i prošli let samo je isključen pusher 
+      - zaključeno je da malo glupo tunirati jer puše umjereno jak vjetar pa nismo sigurni jel su nam pid grafovi (iz pid analize) grbavi zbog toga ili nečeg drugog 
   
