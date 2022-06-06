@@ -194,3 +194,74 @@
       - sve isto kao i prošli let samo je isključen pusher 
       - zaključeno je da malo glupo tunirati jer puše umjereno jak vjetar pa nismo sigurni jel su nam pid grafovi (iz pid analize) grbavi zbog toga ili nečeg drugog 
   
+  
+  Flight day 25 - Cvišić je s nama
+    
+    Prvi let  
+      - leti sa krilima i utezima ukupne mase 11.3 kg, zgašen je pusher motor
+      - danas imamo nove, veće baterije (stare su bile kapacitet 7000, a od danas imamo nove 10000 kapacitet baterije)
+      - leti uz vjetar
+      - odmah pri prvom zaletu prilikom usporavanja se opet porollao i popitchao kao da je nestabilan 
+      - cvišić kaže da ga sletimo 
+      - ne skidamo sad logove nego ćemo kasnije
+      
+    Drugi let
+      - cvišić: mijenja se roll rate i pitch rate integralni dio, oba se stavljaju na 0.05 (smanjeni sa 0.2 na 0.05)
+      - ide isto zalet u vjetar kao i prošli let
+      - opet se unestabilio, ali manje nego prvi put tj uspio se malo brže izvuć (moguće da je tomo prije reagirao na komandama)
+      - opet se zaletio u vjetar i naglo usporavao i isto se kao i maloprije unestabilio ali opet puno brže se izvukao nego maloprije (moguće opet zbog tome)
+      - spušta se 
+      
+    Treći let
+      - mijenjamo parametar za limit brzine spuštanja tj povećat ćemo ga da može brže sletiti (MPC_Z_VEL_MAX_DN := 3 sa prethodne 1.5)
+      - mijenjamo: MPC_Z_P := 0.5 (sa defaultne 1) te MPC_Z_VEL_P_ACC := 3 (sa 7) 
+      - ideja je da ga umrtvimo po visini, mogući problem je što u postion modeu prilikom usporavanja želi održat istu visinu zbog čega smanji PWM pa posljedično počen padat pitchat se rollat se itd, sa smanjenjem Z komponeneti regulatora želimo da ne bude tako jak po Z regulatoru u multi fazi tj da ak alo padne i povisi se prilikom kočenja da ga ne tjera odmah da se vrati u istu visinu (tj da nije toliko ovisan samo o greški visine tj P komponenti)
+      - opet se prilikom usporavanja unestabilio, ali sad se značajno brže izvukao tj samo se jednom naglo popitchao prema naprijed, pa prema nazad i ustabilio se što je zasad poboljšanje (nije se porolla ili nestabilno oscilirao) 
+      - zaključak je da su ovi promijenjeni parametri pomogli pri stbilizaciji te se nastavlja dalje 
+      
+    Četvrti let
+      - mijenjamo: MPC_Z_P := 0.3 (sa 0.5), MPC_Z_VEL_I_ACC := 0.3 (sa 0.7), MPC_Z_VEL_P_ACC := 2 (sa 3), MPC_ROLL_P i MPC_PITCH_P := 6.5 (default, sa 4.5), MC_ROLLRATE_K te MC_PITCHRATE_K te MC_YAWRATE_K :=1 (razni brojevi)
+      - poanta mijenjanja ovih parametara jer da mu damo više upravljivosti za roll i pitch (svi roll i pitch parametri su povećani) a da se smanji značaj visinske komponenete (svi parametri sa 'Z' su smanjene vrijednosti)
+      - također stavili smo sve 'K' na 1 da nam se jednako skaliraju 
+      - napokon dobro usporava, ostaje stbilan, ne poludi po pitchu 
+      - sada jedino malo poludi kada usporava prilikom vožnje u rikverc (kada usporava prema naprijed je top, ali pri naglom usporvanju u rikverc se malo ćeli ponašati nestabilno, nije tak strašno ali primijeti se)
+      
+    Peti let 
+      - isti parametri kao prošli let, samo što sada leti bez krila (masa je 9.6 kg)
+      - želimo vidjet kako se ponaša sa svim novim parametrima (param prošlog leta) bez krila
+      - bez krila kada naglo zaustavlja i naprijed i nazad jednako lijepo se zaustavi (a ne da je loš u rikvercu kao prošli let s krilima)
+      - zaključak u rikvercu se unestabili zbog krila (iako nemaju aerodinamičku ulogu u rikvercu imaju očito za blokiranje ili nešto)
+    
+    Šesti let 
+      - vraćaju se krila te se uključuje stražnji pusher
+      - ide se zaletavati punm brzinom s krilima da vidimo ponšanje s novim parametrima 
+      - baš se nekak loše ponaša (možda je zbog vjetra) nekak se lagano ljulja po rollu i pitchu tj kao da se ne može održati ravnim baš nekak čudno (ne trese se nego baš nekak kao da je pijan i lagano se ljulja)
+
+    Sedmi let - cvišića više nema, otišao je 
+      - ista konfiguracija kao prije 
+      - u ovom letu imat ćemo cijelo vrijeme spuštene elevatore, (kako bi ga natjerali da drži nos dolje cijelo vrijeme dok ubrzava)
+      - lagano ubrzavanje sa spuštenim elevatorom (lagano do ful palice)
+      - još uvijek se ljulja prilikom početka ubrzavanja kao i u prošlom letu (moguće da je opet vjetar)
+      - prednji motori nemaju ampera, moguće da zbog vjetra on sam leti
+    
+    Osmi let
+      - ista kofiguracija kao i prije 
+      - vraćamo elevatore na nulu (kao svi letovi prije prošlog leta), ali postavljamo da ptilikom zaletavanja da leti sa pet stupnjeva prema dolje, tj stavljamo FW_PSP_OFF := -5 (minus pet jer želimo pitch down a ne up)
+      - vjetar dost jako puše kao i zadnja dva leta 
+      - prvi zalet bio je sa elevatorom 0, a drugi zalet je bio sa spuštenim elevatorom skorz dolje (što smo imali u prošlom letu, samo smo za vrijeme leta to uključili preko jetija)
+      - prilikom kočenja se jako preokrenuo, no itekako je moguće da je to zbog vjetra jer dost jako puše 
+      
+    Deveti let 
+      - ista konfiguracija kao i prije
+      - vraćamo FW_PSP_OFF na 0, ali zato sad mijenjamo VT_PITCH_MIN := -5 (sa 0) jer smo zapravo njega htjeli promijeniti a ne ovaj prvi (ovaj prvi je fixed wing parametar, a ovaj drugi za VTOL)
+      - elevatori su na nuli na prvom zaletu uz vjetar
+      - elevatori su spušteni na drugom zaletu uz vjetar 
+      - na trećem zaletu elevatori su u 0, ali treći zalet e nije uspio naprviti jer je stjao na mjestu uz ful palicu (možda vjetar?)
+      
+    Deseti let
+      - ista konfiguracija kao i prije, samo povećavamo VT_PITCHM_MIN na -10 
+      - u početku elevatori su na nuli 
+      - doslovno samo stoji na mjestu uz ful palicu naprijed
+      - uz elevator spušten i ful palicu ful se sporo kreće prema naprijed 
+
+ 
