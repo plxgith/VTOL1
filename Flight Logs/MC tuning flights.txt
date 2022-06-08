@@ -1,0 +1,8 @@
+
+  POREDAK TESTIRANJE KADA SE TUNIRAJU REGULATORI
+  
+  1) Defaultat parametre regulatora
+  1.1) ako je pootrebno upalit notch filter -> ako se pokaže ok ostavit ga
+  2) tunirati ga po potrebi
+  3) smanjiti IMU_DGYRO_CUTOFF sa trenutne na manju vrijednost 
+  3.1) eventualno smanjiti IMU_GYRO_CUTOFF kako bi bio sličan ovom iznad njega 
