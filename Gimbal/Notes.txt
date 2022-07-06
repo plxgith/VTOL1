@@ -1,0 +1,12 @@
+Probao sa 1.13.0 Firmware-om, nije radilo. Možda je  bilo do nečeg drugog.
+
+Radi na firmware-u v.1.11.3.
+Kamera spojena na TELEM2 port, gdje MCU_TX je spojen na S.bus/RX pin na kameri, a MCU_RX na RX pin na kameri.
+MCU_GND je spojen na PITCH pin na kameri.
+
+Parametri u firmware-u:
+MNT_MODE_IN -> MAVLINK_DO_MOUNT (protocol v1)
+MNT_MODE_OUT -> MAVLINK gimbal protocol v1
+MAV_1_CONFIG -> 102 (TELEM2)
+MAV_1_MODE -> 0 (Normal)
+SER_TEL2_BAUD -> 115200
